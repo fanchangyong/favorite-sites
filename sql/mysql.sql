@@ -57,11 +57,40 @@ create table user_folow_idol
 	idolid int(64) not null
 );
 
--- 通知中心
+-- 用户收藏的网址
+create table favorite_websites
+(
+	id int(64) not null auto_incremental primary key,
+	websiteid int(64) not null,
+	userid int(64) not null
+);
+
+-- 通知中心 ,比如XX用户在XX领域新上传了网站XX
 create table user_notification
 (
 	userid int(64) not null,
 	operator int(64) not null,
 	target int(64) not null,
-	target_type int(8) not null,	
+	target_type int(8) not null,
+	operation_type int(8) not null,
+	state int(8) not null
+);
+
+-- 修改记录,比如 XX用户 给 XX网站 添加了截图
+create table modification
+(
+	modid int(64) not null, 
+	operator int(64) not null,-- 操作者ID
+	objectid int(64) not null,-- 操作对象ID
+	object_type int(8) not null, -- 对象类型
+	operation_type int(8) not null -- 做了什么操作
+);
+
+-- 网站评论表
+create table website_comment
+(
+	commentid int(64) not null,
+	websiteid int(64) not null,
+	userid int(64) not null,
+	comment varchar(1024) not null
 );
