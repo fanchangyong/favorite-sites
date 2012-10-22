@@ -17,7 +17,8 @@ create table website
 (
 	siteid int(64) not null primary key, -- ÍøÕ¾Î¨Ò»ID
 	url varchar(128) not null,
-	desc varchar(128) not null, -- ÃèÊö
+	website_name varchar(32) not null,
+	description varchar(128) not null, -- ÃèÊö
 	screen_shot blob null ,-- ½ØÍ¼		
 );
 
@@ -25,8 +26,8 @@ create table website
 create table domain
 (
 	domainid int(64) not null primary key,
-	name varchar(32) not null,
-	desc varchar(128) not null,
+	domain_name varchar(32) not null,
+	description varchar(128) not null,
 );
 
 -- ÍøÕ¾·ÖÀà±í
